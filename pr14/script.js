@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function changeColor() {
         const colors = [
             { start: '#3498db', end: '#2c3e50' },
-            { start: '#2ecc71', end: '#3498db' }
+            { start: '#39123b', end: '#3498db' }
         ];
 
         if (isColorChangeForward) {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         isColorChangeForward = !isColorChangeForward;
     }
 
-    setInterval(changeColor, 1000); // каждые 5 секунд
+    setInterval(changeColor, 3000);
 
     // Анимация появления содержимого
     const content = document.getElementById('content');
@@ -38,5 +38,5 @@ document.addEventListener('DOMContentLoaded', function () {
         const fadeInterval = setInterval(showContent, 200);
     }
 
-    setTimeout(fadeIn, 2000); // через 2 секунды
+    setTimeout(fadeIn, 3000); // через 2 секунды
 });

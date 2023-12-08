@@ -11,7 +11,7 @@
       background: #ccc;
     }
     body {
-      height: 1500px; /* Добавим высоты для демонстрации прокрутки */
+      height: 1500px;
     }
 
     .content {
@@ -24,12 +24,11 @@
 <body>
 <div id="contentContainer">
   <div class="content">
-    <p>Некоторое начальное содержимое</p>
+    <p>Directed by...</p>
   </div>
 </div>
 
 <script>
-  // Функция, которая будет вызвана при прокрутке
   function handleScroll() {
     // Получаем текущее положение прокрутки по вертикали
     var scrollPosition = window.scrollY;
@@ -42,12 +41,10 @@
 
     // Проверяем, достигли ли мы конца страницы
     if (scrollPosition + windowHeight >= documentHeight) {
-      // Здесь можно выполнить дополнительные действия, например, загрузить новый контент (картинку)
       appendNewContent();
     }
   }
 
-  // Функция для добавления нового контента (картинки)
   function appendNewContent() {
     var contentContainer = document.getElementById("contentContainer");
     var newContent = document.createElement("div");
@@ -55,7 +52,7 @@
 
     // Создаем элемент img и устанавливаем ему атрибуты
     var newImage = document.createElement("img");
-    newImage.src = "scrollImage.png"; // Пример URL картинки
+    newImage.src = "scrollImage.png";
     newImage.alt = "Новая картинка";
 
     // Добавляем новую картинку в контейнер
