@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centered Image with Notifications</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+            rel="stylesheet"
+    />
+    <style>
+        html {
+            font-family: 'Montserrat', sans-serif;
+            color: #3F3B38;
+            background: #cccccc;
+        }
+        #notifications {
+            font-size: 32px;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+
+        .notification {
+            margin-bottom: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+        }
+        a {
+            text-decoration: none;
+            color: #ccc;
+            background:#3f3b38bb;
+            font-size: 32px;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="centeredImage">
+    <img src="myImage.jpg" width="200px" alt="Centered Image" id="image" />
+</div>
+
+<div id="notifications">Уведомления</div>
+<div class="button-box"><a href="parallax.html">parallax</a></div>
+<div class="button-box" style="margin-top: 50px;"><a href="scroll.html">scroll</a></div>
+
+<script>
+    const image = document.getElementById("image");
+    const notificationsContainer = document.getElementById("notifications");
+
+    window.addEventListener("click", (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
+        console.log(`Clicked at coordinates: ${x}, ${y}`);
+    });
+
+    window.addEventListener("resize", () => {
+        centerImage();
+    });
+
+    function centerImage() {
+        const windowHeight = window.innerHeight;
+        const windowWidth = window.innerWidth;
+        const imageHeight = image.offsetHeight;
+        const imageWidth = image.offsetWidth;
+
+        const top = (windowHeight - imageHeight) / 2;
+        const left = (windowWidth - imageWidth) / 2;
+
+        image.style.position = "absolute";
+        image.style.top = `${top}px`;
+        image.style.left = `${left}px`;
+    }
+
+    centerImage();
+
+    // Notifications
+    setInterval(() => {
+        const notification = document.createElement("div");
+        notification.className = "notification";
+        notification.innerHTML = `New notification at ${new Date().toLocaleTimeString()}`;
+
+        // Close button
+        const closeButton = document.createElement("button");
+        closeButton.textContent = "close";
+        closeButton.addEventListener("click", () => {
+            notification.remove();
+        });
+
+        notification.appendChild(closeButton);
+        notificationsContainer.appendChild(notification);
+    }, 3000);
+
+    // Delegate click event for notifications container
+    notificationsContainer.addEventListener("click", (e) => {
+        if (e.target.tagName === "BUTTON") {
+            e.target.parentElement.remove();
+        }
+    });
+</script>
+</body>
+</html>

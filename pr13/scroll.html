@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Динамическое обновление при прокрутке</title>
+  <style>
+    html {
+      font-family: "Montserrat", sans-serif;
+      color: #3f3b38;
+      background: #ccc;
+    }
+    body {
+      height: 1500px; /* Добавим высоты для демонстрации прокрутки */
+    }
+
+    .content {
+      padding: 20px;
+      border: 1px solid #ccc;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+<div id="contentContainer">
+  <div class="content">
+    <p>Некоторое начальное содержимое</p>
+  </div>
+</div>
+
+<script>
+  // Функция, которая будет вызвана при прокрутке
+  function handleScroll() {
+    // Получаем текущее положение прокрутки по вертикали
+    var scrollPosition = window.scrollY;
+
+    // Получаем высоту видимой части окна браузера
+    var windowHeight = window.innerHeight;
+
+    // Получаем высоту всего контента включая прокрутку
+    var documentHeight = document.documentElement.scrollHeight;
+
+    // Проверяем, достигли ли мы конца страницы
+    if (scrollPosition + windowHeight >= documentHeight) {
+      // Здесь можно выполнить дополнительные действия, например, загрузить новый контент (картинку)
+      appendNewContent();
+    }
+  }
+
+  // Функция для добавления нового контента (картинки)
+  function appendNewContent() {
+    var contentContainer = document.getElementById("contentContainer");
+    var newContent = document.createElement("div");
+    newContent.className = "content";
+
+    // Создаем элемент img и устанавливаем ему атрибуты
+    var newImage = document.createElement("img");
+    newImage.src = "scrollImage.png"; // Пример URL картинки
+    newImage.alt = "Новая картинка";
+
+    // Добавляем новую картинку в контейнер
+    newContent.appendChild(newImage);
+
+    // Добавляем контент в основной контейнер
+    contentContainer.appendChild(newContent);
+  }
+
+  // Прослушиваем событие прокрутки страницы и вызываем соответствующую функцию обработки
+  window.addEventListener("scroll", handleScroll);
+</script>
+</body>
+</html>
