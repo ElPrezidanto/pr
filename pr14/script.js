@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Анимация изменения фона страницы
     const backgroundAnimation = document.getElementById('background-animation');
     let isColorChangeForward = true;
 
@@ -18,9 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
         isColorChangeForward = !isColorChangeForward;
     }
 
-    setInterval(changeColor, 3000);
+    setInterval(changeColor, 2000);
 
-    // Анимация появления содержимого
     const content = document.getElementById('content');
 
     function fadeIn() {
@@ -38,5 +36,5 @@ document.addEventListener('DOMContentLoaded', function () {
         const fadeInterval = setInterval(showContent, 200);
     }
 
-    setTimeout(fadeIn, 3000); // через 2 секунды
+    setTimeout(fadeIn, 500);
 });

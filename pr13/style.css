@@ -37,7 +37,6 @@ header::before {
     background-repeat: repeat;
     background-size: cover;
     transition: 1s;
-    /* Параллакс */
     transform: translateZ(-5px) scale(6);
 }
 header h1 {
