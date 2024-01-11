@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pr10</title>
+    <link rel="stylesheet" href="https://libs.cdnjs.net/font-awesome/6.4.2/css/all.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+    <form id="registrationForm">
+        <label for="username">Имя:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <div class="captcha-container" id="captchaContainer"></div>
+        <br>
+        <button type="button" onclick="checkCaptcha()">Проверить</button>
+        <button type="submit" id="registerButton" disabled>Зарегистрироваться</button>
+    </form>
+
+
+    <button type="button" onclick="addToCart()">Добавить в корзину</button>
+    <div id="cartValueContainer"></div>
+
+    <div class="cardb-container3">
+        <div class="cardb" id="card11">
+            <h10 id="card1Title">пример усечения текста</h10>
+
+        </div>
+        <br>
+        <div class="cardb" id="card12">
+            <h10 id="card2Title">без "..."</h10>
+        </div>
+        <br>
+        <div class="cardb" id="card13">
+            <h10 id="card3Title">менее 15 символов</h10>
+        </div>
+    </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

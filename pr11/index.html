@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pr11</title>
+    <link rel="stylesheet" href="https://libs.cdnjs.net/font-awesome/6.4.2/css/all.css">
+</head>
+<body>
+<main>
+    <button onclick="changeItem()"><i class="fa-solid fa-trash"></i></button>
+    <button onclick="clearArray()"><i class="fa-solid fa-broom"></i></button>
+    <button onclick="sortByName()">Сортировать по имени</button>
+    <input type="text" id="newItemInput" placeholder="Введите новый товар (количество,цена)">
+    <button onclick="addItem()">Добавить элемент</button>
+    <ul id="cartItems"></ul>
+    <p>Итоговая стоимость: <span id="totalCost">0</span></p>
+    <br>
+    <label for="minValue">Минимальное значение (a): </label>
+    <input type="number" id="minValue" step="any" placeholder="Введите a">
+
+    <label for="maxValue">Максимальное значение (b): </label>
+    <input type="number" id="maxValue" step="any" placeholder="Введите b">
+
+    <button onclick="applyFilter()">Применить фильтр</button>
+
+    <h3>Изначальный массив:</h3>
+    <div id="originalArray"></div>
+
+    <h3>Измененный массив после фильтрации:</h3>
+    <div id="filteredArray"></div>
+
+    <script>
+        let items = [
+            {name: 'Товар 1', quantity: 1, price: 10},
+            {name: 'Товар 2', quantity: 2, price: 15},
+            {name: 'Товар 3', quantity: 3, price: 20},
+        ];
+        let sortAscending = false;
+
+        function displayItems() {
+            const cartItemsElement = document.getElementById('cartItems');
+            const totalCostElement = document.getElementById('totalCost');
+
+            cartItemsElement.innerHTML = '';
+            let totalCost = 0;
+
+            items.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.name} (Количество: ${item.quantity}, Стоимость: ${item.quantity * item.price})`;
+                cartItemsElement.appendChild(listItem);
+
+                totalCost += item.quantity * item.price;
+            });
+
+            totalCostElement.textContent = totalCost;
+        }
+
+        function changeItem() {
+            if (items.length > 0) {
+                items.shift();
+                displayItems();
+            }
+        }
+
+        function clearArray() {
+            items = [];
+            displayItems();
+        }
+
+        function addItem() {
+            const newItemInput = document.getElementById('newItemInput');
+            const newItemValue = newItemInput.value.trim();
+
+            if (newItemValue !== '') {
+                const [name, quantity, price] = newItemValue.split(',').map(value => value.trim());
+
+                if (name && quantity && price && !isNaN(quantity) && !isNaN(price)) {
+                    items.push({name, quantity: parseInt(quantity), price: parseFloat(price)});
+                    displayItems();
+                    newItemInput.value = '';
+                } else {
+                    alert('Пожалуйста, введите корректные значения для нового товара.');
+                }
+            }
+        }
+
+        function sortByName() {
+            sortAscending = !sortAscending;
+            items.sort((a, b) => {
+                const order = sortAscending ? 1 : -1;
+                return order * a.name.localeCompare(b.name);
+            });
+            displayItems();
+        }
+
+        displayItems();
+
+        function filterArray(arr, a, b) {
+            return arr.filter(element => element >= a && element <= b);
+        }
+
+        function displayArray(arr, elementId) {
+            const displayElement = document.getElementById(elementId);
+            displayElement.innerHTML = '';
+            const list = document.createElement('ul');
+            arr.forEach(element => {
+                const listItem = document.createElement('li');
+                listItem.textContent = element;
+                list.appendChild(listItem);
+            });
+            displayElement.appendChild(list);
+        }
+
+        function applyFilter() {
+            const minValue = parseFloat(document.getElementById('minValue').value);
+            const maxValue = parseFloat(document.getElementById('maxValue').value);
+            const resultArray = filterArray(inputArray, minValue, maxValue);
+            displayArray(resultArray, 'filteredArray');
+        }
+
+        let inputArray = [1, 5, 10, 15, 20];
+        displayArray(inputArray, 'originalArray');
+    </script>
+</main>
+</body>
+</html>

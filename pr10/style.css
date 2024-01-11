@@ -1,0 +1,38 @@
+input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.captcha-container {
+    margin-bottom: 16px;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #061b75;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.cardb-container3 {
+    margin-top: 10px;
+}
+
+#registerButton {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
