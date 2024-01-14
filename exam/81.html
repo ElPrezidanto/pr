@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <!-- Создать HTML-документ, содержащий grid-контейнер с сеткой 3 на 3 и размером 100x100 
+    пикселей. Внутри поместить 9 блоков. Для чётных установить красный цвет, для нечётных -
+    синий. Блоки занимают всё пространство ячеек. Задание необходимо выполнить с помощью 
+    языков HTML и CSS. -->
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Grid Example</title>
+        <style>
+          body {
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px; 
+          }
+
+          div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+          }
+
+          /* Четные блоки */
+          div:nth-child(even) {
+            background-color: red;
+          }
+
+          /* Нечетные блоки */
+          div:nth-child(odd) {
+            background-color: blue;
+          }
+        </style>
+      </head>
+      <body>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+      </body>
+    </html>
+  </body>
+</html>

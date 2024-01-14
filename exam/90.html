@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .container {
+            width: 900px;
+            background: brown;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin: 0 auto;
+        }
+        @media (max-width: 999px) {
+            .container {
+                width: 600px;
+            }
+        }
+        @media (max-width: 670px) {
+            .container {
+                width: 300px;
+            }
+        }
+        @media (max-width: 400px) {
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <!-- С помощью CSS создать адаптивный дизайн блока для мобильных устройств в HTML документе. -->
+    <div class="container">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
+      consequuntur debitis perspiciatis a labore repellat itaque quo quas,
+      aliquid distinctio facilis dolorem dolorum eos, provident voluptates
+      nesciunt? Dolores, voluptas amet?
+    </div>
+  </body>
+</html>

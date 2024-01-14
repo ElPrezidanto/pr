@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colorful Table</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin: 20px auto;
+    }
+
+    td {
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      border: 1px solid #000;
+    }
+
+    /* Генерация случайного цвета из набора */
+    .color1 { background-color: #FF5733; }
+    .color2 { background-color: #33FF57; }
+    .color3 { background-color: #5733FF; }
+    .color4 { background-color: #FFD700; }
+    .color5 { background-color: #8A2BE2; }
+
+    /* Убедитесь, что цвета не повторяются в пределах строки или столбца */
+    tr:nth-child(1) td.color1 { background-color: #33FF57; }
+    tr:nth-child(1) td.color2 { background-color: #5733FF; }
+    tr:nth-child(1) td.color3 { background-color: #FFD700; }
+    tr:nth-child(1) td.color4 { background-color: #8A2BE2; }
+    tr:nth-child(1) td.color5 { background-color: #FF5733; }
+
+    tr:nth-child(2) td.color1 { background-color: #5733FF; }
+    tr:nth-child(2) td.color2 { background-color: #FFD700; }
+    tr:nth-child(2) td.color3 { background-color: #8A2BE2; }
+    tr:nth-child(2) td.color4 { background-color: #FF5733; }
+    tr:nth-child(2) td.color5 { background-color: #33FF57; }
+
+    tr:nth-child(3) td.color1 { background-color: #FFD700; }
+    tr:nth-child(3) td.color2 { background-color: #8A2BE2; }
+    tr:nth-child(3) td.color3 { background-color: #FF5733; }
+    tr:nth-child(3) td.color4 { background-color: #33FF57; }
+    tr:nth-child(3) td.color5 { background-color: #5733FF; }
+
+    tr:nth-child(4) td.color1 { background-color: #8A2BE2; }
+    tr:nth-child(4) td.color2 { background-color: #FF5733; }
+    tr:nth-child(4) td.color3 { background-color: #33FF57; }
+    tr:nth-child(4) td.color4 { background-color: #5733FF; }
+    tr:nth-child(4) td.color5 { background-color: #FFD700; }
+
+    tr:nth-child(5) td.color1 { background-color: #33FF57; }
+    tr:nth-child(5) td.color2 { background-color: #5733FF; }
+    tr:nth-child(5) td.color3 { background-color: #FFD700; }
+    tr:nth-child(5) td.color4 { background-color: #8A2BE2; }
+    tr:nth-child(5) td.color5 { background-color: #FF5733; }
+  </style>
+</head>
+<body>
+  <table>
+    <tbody>
+      <tr>
+        <td class="color1"></td>
+        <td class="color2"></td>
+        <td class="color3"></td>
+        <td class="color4"></td>
+        <td class="color5"></td>
+      </tr>
+      <tr>
+        <td class="color2"></td>
+        <td class="color3"></td>
+        <td class="color4"></td>
+        <td class="color5"></td>
+        <td class="color1"></td>
+      </tr>
+      <tr>
+        <td class="color3"></td>
+        <td class="color4"></td>
+        <td class="color5"></td>
+        <td class="color1"></td>
+        <td class="color2"></td>
+      </tr>
+      <tr>
+        <td class="color4"></td>
+        <td class="color5"></td>
+        <td class="color1"></td>
+        <td class="color2"></td>
+        <td class="color3"></td>
+      </tr>
+      <tr>
+        <td class="color5"></td>
+        <td class="color1"></td>
+        <td class="color2"></td>
+        <td class="color3"></td>
+        <td class="color4"></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
